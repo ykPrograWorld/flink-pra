@@ -1,0 +1,6 @@
+1,login
+1,buy something
+1,logout
+2,login
+2,click book
+1,login
