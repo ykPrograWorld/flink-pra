@@ -18,7 +18,7 @@ import org.example.watermark.OrderItemWaterMark;
 import java.math.BigDecimal;
 
 /**
- * window join 滚动窗口
+ * intervalJoin
  */
 
 public class Join03 {

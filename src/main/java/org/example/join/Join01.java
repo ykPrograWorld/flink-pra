@@ -16,6 +16,10 @@ import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * window join 滚动窗口
+ */
+
 public class Join01 {
 
     private static final Logger log = LoggerFactory.getLogger(Join01.class);
