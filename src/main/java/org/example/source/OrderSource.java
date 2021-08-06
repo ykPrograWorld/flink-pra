@@ -28,10 +28,12 @@ public class OrderSource extends RichSourceFunction<OrderItem> {
             orderItem.setGoodsID(goods.getGoodsId());
             orderItem.setCount(r.nextInt(10) + 1);
             orderItem.setItemId(UUID.randomUUID().toString());
+            orderItem.setEvnTime(System.currentTimeMillis());
+
 
             sourceContext.collect(orderItem);
-            orderItem.setGoodsID("111");
-            sourceContext.collect(orderItem);
+//            orderItem.setGoodsID("111");
+//            sourceContext.collect(orderItem);
             TimeUnit.SECONDS.sleep(1);
         }
     }

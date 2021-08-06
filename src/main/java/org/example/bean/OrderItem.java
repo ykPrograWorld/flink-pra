@@ -7,6 +7,7 @@ public class OrderItem {
     private String itemId;
     private String goodsID;
     private Integer count;
+    private Long evnTime;
 
     @Override
     public String toString() {
@@ -35,5 +36,13 @@ public class OrderItem {
 
     public Integer getCount() {
         return count;
+    }
+
+    public void setEvnTime(Long evnTime) {
+        this.evnTime = evnTime;
+    }
+
+    public Long getEvnTime() {
+        return evnTime;
     }
 }

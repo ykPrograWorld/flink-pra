@@ -13,6 +13,7 @@ public class Goods {
     private String goodsId;
     private String goodsName;
     private BigDecimal goodsPrice;
+    private Long evnTime;
     public static List<Goods> goods_List;
     public static Random r;
 
@@ -20,22 +21,23 @@ public class Goods {
 
     }
 
-    public Goods(String goodsId, String goodsName, BigDecimal goodsPrice) {
+    public Goods(String goodsId, String goodsName, BigDecimal goodsPrice, Long evnTime) {
         this.goodsId = goodsId;
         this.goodsName = goodsName;
         this.goodsPrice = goodsPrice;
+        this.evnTime = evnTime;
     }
 
 
     static {
         r = new Random();
         goods_List = new ArrayList<>();
-        goods_List.add(new Goods("1", "小米12", new BigDecimal(4890)));
-        goods_List.add(new Goods("2", "iphone12", new BigDecimal(3890)));
-        goods_List.add(new Goods("3", "macbookpro", new BigDecimal(5890)));
-        goods_List.add(new Goods("4", "thinkpadx1", new BigDecimal(6890)));
-        goods_List.add(new Goods("5", "meizu", new BigDecimal(8890)));
-        goods_List.add(new Goods("6", "mate40", new BigDecimal(9890)));
+        goods_List.add(new Goods("1", "小米12", new BigDecimal(4890),System.currentTimeMillis()));
+        goods_List.add(new Goods("2", "iphone12", new BigDecimal(4890),System.currentTimeMillis()));
+        goods_List.add(new Goods("3", "macbookpro", new BigDecimal(4890),System.currentTimeMillis()));
+        goods_List.add(new Goods("4", "thinkpadx1", new BigDecimal(6890),System.currentTimeMillis()));
+        goods_List.add(new Goods("5", "meizu", new BigDecimal(8890),System.currentTimeMillis()));
+        goods_List.add(new Goods("6", "mate40", new BigDecimal(9890),System.currentTimeMillis()));
     }
 
     public static Goods randomGoods() {
@@ -87,5 +89,13 @@ public class Goods {
 
     public static Random getR() {
         return r;
+    }
+
+    public Long getEvnTime() {
+        return evnTime;
+    }
+
+    public void setEvnTime(Long evnTime) {
+        this.evnTime = evnTime;
     }
 }
