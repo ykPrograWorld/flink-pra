@@ -14,6 +14,7 @@ import org.apache.flink.streaming.api.watermark.Watermark;
 import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
+import org.apache.flink.streaming.runtime.operators.util.AssignerWithPeriodicWatermarksAdapter;
 import org.apache.flink.util.Collector;
 import org.apache.flink.util.OutputTag;
 import org.example.utils.FlinkUtils;
@@ -31,7 +32,7 @@ import java.util.Iterator;
 public class wm01 {
     public static void main(String[] args) throws Exception{
         StreamExecutionEnvironment streamEnv = FlinkUtils.getStreamEnv();
-//        设置使用eventTime,默认使用processtime
+//        设置使用eventTime,默认使用processtime  flink1.12已弃用，默认为事件时间
         streamEnv.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
 
         streamEnv.setParallelism(1);
