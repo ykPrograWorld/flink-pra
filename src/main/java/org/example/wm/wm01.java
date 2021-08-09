@@ -106,22 +106,3 @@ public class wm01 {
     }
 
 }
-
-//public class BoundedOutofordernessGenerator implements AssignerWithPeriodicWatermarks<Goods>{
-//    private final long maxOutOfOrderness = 3500; //3.5s
-//
-//    private long currentMaxTimestamp;
-//
-//    @Override
-//    public long extractTimestamp(Goods g, long l) {
-//        long timestamp = g.getEvnTime();
-//        currentMaxTimestamp = Math.max(timestamp,currentMaxTimestamp);
-//        return timestamp;
-//    }
-//
-//    @Nullable
-//    @Override
-//    public Watermark getCurrentWatermark() {
-//        return new Watermark(currentMaxTimestamp - maxOutOfOrderness);
-//    }
-//}
