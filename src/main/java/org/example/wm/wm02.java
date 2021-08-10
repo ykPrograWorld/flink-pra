@@ -3,7 +3,6 @@ package org.example.wm;
 import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.MapFunction;
-import org.apache.flink.api.java.tuple.Tuple;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
@@ -24,6 +23,7 @@ import java.util.Iterator;
 /**
  * BoundedOutOfOrdernessTimestampExtractor 实现了 AssignerWithPeriodicWatermarks
  * flink1.11之后使用WatermarkStrategy生成watermark
+ * WatermarkStrategy之BoundedOutOfOrderness
  */
 public class wm02 {
     public static void main(String[] args) throws Exception{
