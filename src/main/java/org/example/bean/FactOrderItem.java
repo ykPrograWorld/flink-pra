@@ -11,6 +11,16 @@ public class FactOrderItem {
     private BigDecimal count;
     private BigDecimal totalMoney;
 
+    public FactOrderItem() {
+    }
+
+    public FactOrderItem(String goodsId, String goodsName, BigDecimal count, BigDecimal totalMoney) {
+        this.goodsId = goodsId;
+        this.goodsName = goodsName;
+        this.count = count;
+        this.totalMoney = totalMoney;
+    }
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

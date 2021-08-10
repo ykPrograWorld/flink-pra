@@ -7,6 +7,6 @@ import org.apache.flink.api.common.eventtime.WatermarkStrategy;
  */
 public class wm03 {
     public static void main(String[] args) {
-        WatermarkStrategy.forGenerator()
+
     }
 }
