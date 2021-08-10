@@ -21,8 +21,8 @@ public class GoodsSource extends RichSourceFunction<Goods> {
 //        for (int i = 0; i < 10; i++) {
             Goods.goods_List.stream().forEach(goods -> sourceContext.collect(goods));
             TimeUnit.SECONDS.sleep(1);
-        }
 //        }
+        }
     }
 
     @Override
