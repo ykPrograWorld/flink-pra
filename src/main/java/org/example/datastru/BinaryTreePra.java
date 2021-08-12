@@ -4,7 +4,19 @@ import java.util.Stack;
 
 public class BinaryTreePra {
     public static void main(String[] args) {
+        TreeNode root = new TreeNode(10);
+        TreeNode left = new TreeNode(6);
+        root.left = left;
+        left.left = new TreeNode(4);
+        left.right = new TreeNode(8);
 
+        TreeNode right = new TreeNode(14);
+        root.right = right;
+        right.left = new TreeNode(12);
+        right.right = new TreeNode(16);
+
+//        前序遍历 递归
+        frontRecursive(root);
     }
 
     /**
@@ -14,7 +26,7 @@ public class BinaryTreePra {
         if(root == null){
             return;
         }else {
-            System.out.println(root.val);
+            System.out.print(root.val + ",");
             frontRecursive(root.left);
             frontRecursive(root.right);
         }
@@ -111,9 +123,20 @@ public class BinaryTreePra {
             TreeNode preNode = null;
 //
             while (!stack.isEmpty() && tag == true){
-                root = stack.pop();
-                System.out.println(root.val);
-
+                root = stack.peek();
+//                之前访问的为空节点或是栈顶节点的右子节点
+                if(root.right == preNode){
+                    stack.pop();
+                    System.out.println(root.val);
+                if(stack.isEmpty()){
+                    return;
+                }else {
+                    preNode = root;
+                }
+                }else {
+                    root = root.right;
+                    tag = false;
+                }
             }
         }
     }
