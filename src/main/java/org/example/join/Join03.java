@@ -34,13 +34,14 @@ public class Join03 {
         SingleOutputStreamOperator<OrderItem> orderItemDsWithWatermark = orderSource.assignTimestampsAndWatermarks(new OrderItemWaterMark());
 
 
-        SingleOutputStreamOperator<FactOrderItem> resultDs = goodsDsWithWatermark.keyBy(Goods::getGoodsId)
-                .intervalJoin(orderItemDsWithWatermark.keyBy(OrderItem::getGoodsID))
-                .between(Time.seconds(0), Time.seconds(1))
+        SingleOutputStreamOperator<FactOrderItem> resultDs = goodsDsWithWatermark.keyBy(Goods::getItemId)
+                .intervalJoin(orderItemDsWithWatermark.keyBy(OrderItem::getItemId))
+                .between(Time.seconds(-5), Time.seconds(5))
                 .process(new ProcessJoinFunction<Goods, OrderItem, FactOrderItem>() {
                     @Override
                     public void processElement(Goods goods, OrderItem orderItem, Context context, Collector<FactOrderItem> collector) throws Exception {
                         FactOrderItem result = new FactOrderItem();
+                        result.setItemId(goods.getItemId());
                         result.setGoodsId(goods.getGoodsId());
                         result.setGoodsName(goods.getGoodsName());
                         result.setCount(new BigDecimal(orderItem.getCount()));

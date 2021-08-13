@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 
 //关联结果
 public class FactOrderItem {
+    private String itemId;
     private String goodsId;
     private String goodsName;
     private BigDecimal count;
@@ -15,6 +16,14 @@ public class FactOrderItem {
     }
 
     public FactOrderItem(String goodsId, String goodsName, BigDecimal count, BigDecimal totalMoney) {
+        this.goodsId = goodsId;
+        this.goodsName = goodsName;
+        this.count = count;
+        this.totalMoney = totalMoney;
+    }
+
+    public FactOrderItem(String itemId, String goodsId, String goodsName, BigDecimal count, BigDecimal totalMoney) {
+        this.itemId = itemId;
         this.goodsId = goodsId;
         this.goodsName = goodsName;
         this.count = count;
@@ -56,5 +65,13 @@ public class FactOrderItem {
 
     public BigDecimal getTotalMoney() {
         return totalMoney;
+    }
+
+    public String getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(String itemId) {
+        this.itemId = itemId;
     }
 }
