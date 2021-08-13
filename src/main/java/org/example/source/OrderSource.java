@@ -3,6 +3,7 @@ package org.example.source;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.source.RichSourceFunction;
 import org.example.bean.Goods;
+import org.example.bean.ItemId;
 import org.example.bean.OrderItem;
 
 import java.util.Random;
@@ -22,12 +23,12 @@ public class OrderSource extends RichSourceFunction<OrderItem> {
 
     @Override
     public void run(SourceContext<OrderItem> sourceContext) throws Exception {
-        while (!iscancel) {
+//        while (!iscancel) {
             Goods goods = Goods.randomGoods();
             OrderItem orderItem = new OrderItem();
             orderItem.setGoodsID(goods.getGoodsId());
             orderItem.setCount(r.nextInt(10) + 1);
-            orderItem.setItemId(UUID.randomUUID().toString());
+            orderItem.setItemId(ItemId.getItemId());
             orderItem.setEvnTime(System.currentTimeMillis());
 
 
@@ -35,7 +36,7 @@ public class OrderSource extends RichSourceFunction<OrderItem> {
 //            orderItem.setGoodsID("111");
 //            sourceContext.collect(orderItem);
             TimeUnit.SECONDS.sleep(1);
-        }
+//        }
     }
 
     @Override

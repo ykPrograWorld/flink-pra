@@ -36,7 +36,7 @@ public class Join03 {
 
         SingleOutputStreamOperator<FactOrderItem> resultDs = goodsDsWithWatermark.keyBy(Goods::getGoodsId)
                 .intervalJoin(orderItemDsWithWatermark.keyBy(OrderItem::getGoodsID))
-                .between(Time.seconds(-2), Time.seconds(1))
+                .between(Time.seconds(0), Time.seconds(1))
                 .process(new ProcessJoinFunction<Goods, OrderItem, FactOrderItem>() {
                     @Override
                     public void processElement(Goods goods, OrderItem orderItem, Context context, Collector<FactOrderItem> collector) throws Exception {
