@@ -18,7 +18,7 @@ import org.example.utils.FlinkUtils;
 import java.math.BigDecimal;
 
 /**
- * cogroup pra
+ * cogroup pra  一个流|数据集中有没有找到与另一个匹配的数据都会输出
  */
 public class Join08 {
     public static void main(String[] args) throws Exception{
