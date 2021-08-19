@@ -66,8 +66,6 @@ public class LeetCodePra {
 
         }
     }
-
-
     /*
     位置替换  i和j互换
      */
