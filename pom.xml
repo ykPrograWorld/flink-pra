@@ -49,12 +49,43 @@
       <artifactId>flink-clients_2.11</artifactId>
       <version>${flink.version}</version>
     </dependency>
+<!--使用table api 或者 sql必须引用此包-->
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-table-api-java-bridge_2.11</artifactId>
+      <version>${flink.version}</version>
+    </dependency>
+<!--在本地idea执行必须引入table解析器,目前有两种,以blink为主-->
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-table-planner-blink_2.11</artifactId>
+      <version>${flink.version}</version>
+    </dependency>
+<!--    有些table是在scala里实现的,此包必须引用-->
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-streaming-scala_2.11</artifactId>
+      <version>${flink.version}</version>
+    </dependency>
 
+<!--  自定义实现kafka或者udf函数需要引用此包-->
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-table-common</artifactId>
+      <version>${flink.version}</version>
+    </dependency>
+
+<!--    <dependency>-->
+<!--      <groupId>junit</groupId>-->
+<!--      <artifactId>junit</artifactId>-->
+<!--      <version>4.11</version>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
+<!--    单元测试包引入-->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
+      <version>4.13</version>
     </dependency>
   </dependencies>
 
