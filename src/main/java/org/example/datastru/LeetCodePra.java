@@ -2,6 +2,8 @@ package org.example.datastru;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+
 public class LeetCodePra {
     public static void main(String[] args) {
         /*
@@ -13,9 +15,19 @@ public class LeetCodePra {
 
 
         int[] arrSele = {3, 1, 5, 14, 7, 12, 9};
-        selectSort(arrSele);
+//        选择排序
+//        selectSort(arrSele);
+//        System.out.println();
+//        selectSortPra(arrSele);
+//        System.out.println();
+//        冒泡排序
+//        bubbleSort(arrSele);
+//        System.out.println();
+//        bulleSortPra(arrSele);
+//      插入排序
+        insertSort(arrSele);
         System.out.println();
-        selectSortPra(arrSele);
+        insertSortPra(arrSele);
     }
 
     /*
@@ -92,7 +104,7 @@ public class LeetCodePra {
         for (int i = 0; i < arr.length - 1; i++) {
             int minPos = i;
             for (int j = i + 1; j < arr.length; j++) {
-                minPos = arr[j] < arr[i] ? j : minPos;
+                minPos = arr[j] < arr[minPos] ? j : minPos;
             }
             swap(arr,i,minPos);
         }
@@ -112,7 +124,109 @@ public class LeetCodePra {
     }
 
 
+    /*
+    冒泡排序
+     */
+    public static void bubbleSort(int[] sourArr){
+        int[] tagertArr = Arrays.copyOf(sourArr,sourArr.length);
+        for (int i = 0; i < tagertArr.length; i++) {
+//      设定一个标记,若为true,则表示此次循环没有进行交换，也就是排列已经有序，排序已完成
+            boolean flag = true;
+            for (int j = 0; j < tagertArr.length - 1; j++) {
+                if(tagertArr[j] > tagertArr[j+1]){
+                    int tmp = tagertArr[j];
+                    tagertArr[j] = tagertArr[j+1];
+                    tagertArr[j+1] = tmp;
+                    flag = false;
+                }
+            }
 
+            if(flag){
+                break;
+            }
+        }
+        for (int i = 0; i < tagertArr.length; i++) {
+            System.out.print(tagertArr[i] + " ");
+        }
+    }
+
+/*
+  冒泡排序 self pra
+ */
+
+    public static void bulleSortPra(int[] arr){
+        for (int i = 0; i < arr.length; i++) {
+            boolean tag = true;
+            for (int j = 0; j < arr.length - 1; j++) {
+                if(arr[j] > arr[j+1]){
+                    int tmp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = tmp;
+                    tag = false;
+                }
+            }
+            if(tag){
+                break;
+            }
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+
+    }
+
+    /*
+       插入排序
+     */
+    public static void insertSort(int[] sourArr){
+        int[] arr = Arrays.copyOf(sourArr, sourArr.length);
+//      从下标为1的元素开始选择合适的位置插入,因为下标为0的只有一个元素，默认是有序的
+        for (int i = 1; i < arr.length; i++) {
+//            记录要插入的数据
+            int tmp = arr[i];
+
+//            从已经排序的序列最右边的开始比较，找到比其小的数
+            int j = i;
+            while (j > 0 && tmp < arr[j-1]){
+                arr[j] = arr[j - 1];
+                j--;
+            }
+
+//            存在比其小的数，插入
+            if(j != i){
+                arr[j] = tmp;
+            }
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+    /*
+    插入排序 self pra
+     */
+    public static void insertSortPra(int[] sourArr){
+        int[] arr = Arrays.copyOf(sourArr, sourArr.length);
+
+        for (int i = 1; i < arr.length; i++) {
+            int tmp = arr[i];
+            int j = i;
+            while (j>0 && tmp < arr[j-1]){
+                arr[j] = arr[j-1];
+                j--;
+            }
+
+            if(j != i){
+                arr[j] = tmp;
+            }
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
 
 
 
