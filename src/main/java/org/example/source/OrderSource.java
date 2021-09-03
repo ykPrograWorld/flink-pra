@@ -27,7 +27,7 @@ public class OrderSource extends RichSourceFunction<OrderItem> {
     @Override
     public void run(SourceContext<OrderItem> sourceContext) throws Exception {
 //        while (!iscancel) {
-            List<Goods> goodList = GoodList.getGoodList();
+            List<Goods> goodList = GoodList.getGoodList(0l);
             Goods goods = goodList.get(r.nextInt(goodList.size()));
             OrderItem orderItem = new OrderItem();
             orderItem.setGoodsID(goods.getGoodsId());

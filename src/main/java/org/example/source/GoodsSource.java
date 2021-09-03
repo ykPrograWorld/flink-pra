@@ -22,7 +22,7 @@ public class GoodsSource extends RichSourceFunction<Goods> {
         r = new Random();
         isCancel = false;
 
-          goods_List = GoodList.getGoodList();
+          goods_List = GoodList.getGoodList(System.currentTimeMillis());
 //        goods_List = new ArrayList<>();
 //        goods_List.add(new Goods("1", "小米12", new BigDecimal(4890),System.currentTimeMillis()));
 //        goods_List.add(new Goods("2", "iphone12", new BigDecimal(4890),System.currentTimeMillis()));
@@ -40,8 +40,8 @@ public class GoodsSource extends RichSourceFunction<Goods> {
             Goods goods = goods_List.get(r.nextInt(6));
             goods.setItemId(ItemId.getItemId());
             sourceContext.collect(goods);
-            TimeUnit.SECONDS.sleep(1);
         }
+            TimeUnit.MINUTES.sleep(1);
         }
     }
 
