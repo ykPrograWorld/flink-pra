@@ -2,7 +2,7 @@ package org.example.datastru;
 
 import java.util.Stack;
 
-public class test {
+public class Test {
     public static void main(String[] args) {
         Stack<String> stringStack = new Stack<>();
         stringStack.push("1");
