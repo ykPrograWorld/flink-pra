@@ -6,6 +6,9 @@ import org.apache.flink.streaming.api.functions.source.SourceFunction;
 import com.ververica.cdc.debezium.StringDebeziumDeserializationSchema;
 import com.ververica.cdc.connectors.mysql.MySqlSource;
 
+/*
+cdc stream demo
+ */
 import java.util.Properties;
 
 public class CDC01 {
